@@ -27,10 +27,23 @@ public class ComercialExperimentado implements Empleados {
 	//2 Crear constructor para inyeccion en clase que lo solicite
 	//3 configurar la dependencia con @Autowired
 	
+	
+	//en el constructor no es necesario usar el autowired pero se recomienda por si se llama mas veces
+//	@Autowired
+//	public ComercialExperimentado(CreacionInformeFinanciero nuevoInforme) {
+//		this.nuevoInforme = nuevoInforme;
+//	}
+	
+	
+	//tambien puede aplicarse desde la instancia, esto se llama Reflexion
 	@Autowired
-	public ComercialExperimentado(CreacionInformeFinanciero nuevoInforme) {
+	private CreacionInformeFinanciero nuevoInforme;
+		
+	//autowired con un setter
+	
+	@Autowired
+	public void setNuevoInforme(CreacionInformeFinanciero nuevoInforme) {
 		this.nuevoInforme = nuevoInforme;
 	}
-	private CreacionInformeFinanciero nuevoInforme;
 
 }
